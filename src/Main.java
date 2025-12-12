@@ -13,16 +13,16 @@ public class Main {
         ResultSet resultSet = statement.executeQuery(sql);
         System.out.println("Datos de la tabla");
         while (resultSet.next()) {
-            System.out.println(resultSet.getInt("id")+ "L");
-            System.out.println(resultSet.getString("nombre"));
-            System.out.println(resultSet.getString("correo"));
-            System.out.println(resultSet.getString("password"));
+            System.out.println(resultSet.getInt("id")+ "|");
+            System.out.print(resultSet.getString("nombre"));
+            System.out.print(resultSet.getString("correo"));
+            System.out.print(resultSet.getString("password"));
         }
 
 
 
         if (connection != null) {
-            System.out.println("Conexion exitosa");
+            System.out.println("\nConexion exitosa");
             connection.close();
         } else{
             System.out.println("No se puede conectar con la base de datos");
