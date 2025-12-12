@@ -1,6 +1,4 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
@@ -9,6 +7,19 @@ public class Main {
         String user = "root";
         String password = "root";
         Connection connection = DriverManager.getConnection(url, user, password);
+
+        String sql = "SELECT * FROM usuarios_cliente";
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        System.out.println("Datos de la tabla");
+        while (resultSet.next()) {
+            System.out.println(resultSet.getInt("id")+ "L");
+            System.out.println(resultSet.getString("nombre"));
+            System.out.println(resultSet.getString("correo"));
+            System.out.println(resultSet.getString("password"));
+        }
+
+
 
         if (connection != null) {
             System.out.println("Conexion exitosa");
